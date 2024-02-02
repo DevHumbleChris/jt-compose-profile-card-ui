@@ -31,7 +31,7 @@ How to Run
 1. Clone the repository:
 
 ```bash
-    git clone https://github.com/DevHumbleChris/counterapp.git
+    git clone https://github.com/DevHumbleChris/jt-compose-profile-card-ui.git
 ```
 
 2. Open the project in Android Studio.
@@ -42,7 +42,7 @@ Code Structure
 
 The codebase is organized as follows:
 
-- `app/src/main/java/com/example/counterapp/` - Contains the main source code.
+- `app/src/main/java/com/example/profilecardui/` - Contains the main source code.
 - `app/src/main/res/` - Contains resources such as layout files and drawables.
 
 Dependencies

@@ -10,6 +10,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.example.profilecardui.screens.MainNavigation
 
@@ -17,20 +18,10 @@ import com.example.profilecardui.screens.MainNavigation
 @Composable
 fun ProfileCardUIApp() {
     val navController = rememberNavController()
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { 
-                    Text(text = "Friendzy")
-                },
-            )
-        }
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = Color(android.graphics.Color.parseColor("#181816"))
     ) {
-        Surface(
-            modifier = Modifier.padding(it).fillMaxSize(),
-            color = Color.White
-        ) {
-            MainNavigation(navController)
-        }
+        MainNavigation(navController)
     }
 }

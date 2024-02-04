@@ -43,7 +43,9 @@ fun ProfileCardUIApp() {
                     ) {
                         Column {
                             IconButton(
-                                onClick = { /*TODO*/ },
+                                onClick = {
+                                    navController.navigate("profiles")
+                                },
                             ) {
                                 Column {
                                     Icon(
@@ -59,12 +61,14 @@ fun ProfileCardUIApp() {
                         }
                         Column {
                             IconButton(
-                                onClick = { /*TODO*/ },
+                                onClick = {
+                                    navController.navigate("author")
+                                },
                             ) {
                                 Column {
                                     Icon(
                                         painter = painterResource(id = R.drawable.thecodingmontana),
-                                        contentDescription = "Home Outlined Icon",
+                                        contentDescription = "Panda Outlined Icon",
                                         tint = Color(android.graphics.Color.parseColor("#e91e63")),
                                         modifier = Modifier.size(52.dp)
                                     )

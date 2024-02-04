@@ -7,12 +7,15 @@ import androidx.navigation.compose.composable
 
 @Composable
 fun MainNavigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "profiles") {
+    NavHost(navController = navController, startDestination = "user-profile") {
         composable(route = "profiles") {
             HomeProfiles(navController)
         }
         composable(route = "author") {
             Author(navController)
+        }
+        composable(route = "user-profile") {
+            UserProfile(navController)
         }
     }
 }

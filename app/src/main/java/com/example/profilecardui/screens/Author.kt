@@ -52,7 +52,7 @@ fun Author(navController: NavHostController) {
             modifier = Modifier
                 .fillMaxSize()
                 .offset(
-                    y = (-150).dp
+                    y = (-130).dp
                 )
         ) {
             Column(

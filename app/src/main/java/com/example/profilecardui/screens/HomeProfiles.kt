@@ -29,9 +29,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.profilecardui.R
+import com.example.profilecardui.ui.theme.fontProtest
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -80,22 +83,23 @@ fun HomeProfiles(navController: NavHostController) {
                         Column(
                             modifier = Modifier
                                 .background(
-                                    color = Color(android.graphics.Color.parseColor("#222222"))
+                                    color = Color(android.graphics.Color.parseColor("#222222")),
+                                    shape = RoundedCornerShape(10.dp)
                                 )
                                 .padding(20.dp)
-                                .width(120.dp)
+                                .width(250.dp)
                         ) {
 
-                            Text(text = "Johana, 25", color = Color.White)
+                            Text(text = "Johana, 25", color = Color.White, fontFamily = fontProtest, fontSize = 30.sp)
                             Spacer(modifier = Modifier.height(10.dp))
                             Divider(
                                 modifier = Modifier.fillMaxWidth(),
                                 thickness = 1.dp
                             )
                             Spacer(modifier = Modifier.height(10.dp))
-                            Text(text = "UX Designer", color = Color.White)
+                            Text(text = "UX Designer", color = Color.White, fontWeight = FontWeight.SemiBold)
                             Spacer(modifier = Modifier.height(2.dp))
-                            Text(text = "Google", color = Color.White)
+                            Text(text = "Google", color = Color(android.graphics.Color.parseColor("#e91e63")))
                         }
                     }
                 }

@@ -4,12 +4,33 @@ import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.googlefonts.Font
+import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.unit.sp
+import com.example.profilecardui.R
+
+val provider = GoogleFont.Provider(
+    providerAuthority = "com.google.android.gms.fonts",
+    providerPackage = "com.google.android.gms",
+    certificates = R.array.com_google_android_gms_fonts_certs
+)
+
+val fontNameRaleway = GoogleFont("Raleway")
+val fontName = GoogleFont("Protest Guerrilla")
+
+val fontProtest = FontFamily(
+    Font(googleFont = fontName, fontProvider = provider),
+    androidx.compose.ui.text.font.Font(resId = R.font.protestguerrilla)
+)
+
+val fontRaleway = FontFamily(
+    Font(googleFont = fontNameRaleway, fontProvider = provider)
+)
 
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = fontRaleway,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,

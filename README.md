@@ -17,7 +17,7 @@ Requirements:
 
 Preview
 -----------
-<img src="./public/preview.gif" />
+<img src="./public/Friendzy.gif" />
 
 Technologies Used
 -----------------

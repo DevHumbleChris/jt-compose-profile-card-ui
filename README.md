@@ -6,15 +6,6 @@ Overview
 
 This repository contains my submission for the Jetpack Compose Profile Card UI Challenge. The challenge was to create a profile card UI that displays a user's profile information using Rows, Columns, and Text elements.
 
-Requirements:
---------
-
-1. Display the user's profile picture at the top center of the card.
-2. Below the profile picture, display the user's name centered horizontally.
-3. Below the name, display the user's bio text with a maximum of two lines, centered horizontally.
-4. Add an icon (e.g., email icon) aligned to the left and a corresponding email address aligned to the right on the same row below the bio text.
-5. Add a button at the bottom of the card, centered horizontally, labeled "View Profile".
-
 Preview
 -----------
 <img src="./public/Friendzy.gif" />

@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -15,6 +16,8 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -38,10 +41,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.profilecardui.R
+import com.example.profilecardui.data.ProfileCardViewModel
 import com.example.profilecardui.ui.theme.fontProtest
 
 @Composable
-fun UserProfile(navController: NavHostController) {
+fun UserProfile(
+    navController: NavHostController,
+    profilesViewModel: ProfileCardViewModel,
+    userId: String
+) {
     val scrollState = rememberScrollState()
     Column(
         modifier = Modifier
@@ -96,9 +104,9 @@ fun UserProfile(navController: NavHostController) {
                         .padding(5.dp)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.christopher),
-                        contentDescription = "Mombasa Beach Image",
-                        contentScale = ContentScale.FillHeight,
+                        painter = painterResource(id = profilesViewModel.userProfiles[userId.toInt()].imgSrc),
+                        contentDescription = profilesViewModel.userProfiles[userId.toInt()].fullName,
+                        contentScale = ContentScale.Crop,
                         modifier = Modifier
                             .size(130.dp)
                             .clip(CircleShape)
@@ -108,19 +116,19 @@ fun UserProfile(navController: NavHostController) {
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text(
-                            text = "Christopher Odhiambo", fontFamily = fontProtest,
+                            text = profilesViewModel.userProfiles[userId.toInt()].fullName, fontFamily = fontProtest,
                             fontSize = 23.sp,
                             color = Color(android.graphics.Color.parseColor("#08d884"))
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "UX Designer",
+                            text = profilesViewModel.userProfiles[userId.toInt()].occupation,
                             color = Color.White,
                             fontWeight = FontWeight.SemiBold
                         )
                         Spacer(modifier = Modifier.height(2.dp))
                         Text(
-                            text = "Google",
+                            text = profilesViewModel.userProfiles[userId.toInt()].company,
                             color = Color(android.graphics.Color.parseColor("#e91e63"))
                         )
                     }
@@ -134,7 +142,7 @@ fun UserProfile(navController: NavHostController) {
                         )
                         Spacer(modifier = Modifier.height(10.dp))
                         Text(
-                            text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+                            text = profilesViewModel.userProfiles[userId.toInt()].bio,
                             fontSize = 15.sp
                         )
                     }
@@ -161,39 +169,45 @@ fun UserProfile(navController: NavHostController) {
                         }
                     }
                     Spacer(modifier = Modifier.height(30.dp))
-                    Column {
-                        Text(
-                            text = "Friends:",
-                            color = Color(android.graphics.Color.parseColor("#08d884"))
-                        )
-                        Spacer(modifier = Modifier.height(20.dp))
-                        Column(
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.christopher),
-                                contentDescription = "Mombasa Beach Image",
-                                contentScale = ContentScale.FillHeight,
-                                modifier = Modifier
-                                    .size(130.dp)
-                                    .clip(CircleShape)
-                            )
-                            Column(
-                                verticalArrangement = Arrangement.Center,
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Text(
-                                    text = "Frontend Developer",
-                                    color = Color(android.graphics.Color.parseColor("#08d884")),
-                                    fontSize = 14.sp
-                                )
-                                Spacer(modifier = Modifier.height(5.dp))
-                                Text(
-                                    text = "Google",
-                                    color = Color(android.graphics.Color.parseColor("#08d884")),
-                                    fontSize = 12.sp
-                                )
+                    Text(
+                        text = "Friends:",
+                        color = Color(android.graphics.Color.parseColor("#08d884"))
+                    )
+                    LazyRow(
+                        horizontalArrangement = Arrangement.spacedBy(20.dp)
+                    ) {
+                        items(profilesViewModel.friends) { item ->
+                            Column {
+                                Spacer(modifier = Modifier.height(20.dp))
+                                Column(
+                                    verticalArrangement = Arrangement.Center,
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Image(
+                                        painter = painterResource(id = item.imgSrc),
+                                        contentDescription = item.fullName,
+                                        contentScale = ContentScale.Crop,
+                                        modifier = Modifier
+                                            .size(130.dp)
+                                            .clip(CircleShape)
+                                    )
+                                    Column(
+                                        verticalArrangement = Arrangement.Center,
+                                        horizontalAlignment = Alignment.CenterHorizontally
+                                    ) {
+                                        Text(
+                                            text = item.occupation,
+                                            color = Color(android.graphics.Color.parseColor("#08d884")),
+                                            fontSize = 14.sp
+                                        )
+                                        Spacer(modifier = Modifier.height(5.dp))
+                                        Text(
+                                            text = "Google",
+                                            color = Color(android.graphics.Color.parseColor("#08d884")),
+                                            fontSize = 12.sp
+                                        )
+                                    }
+                                }
                             }
                         }
                     }

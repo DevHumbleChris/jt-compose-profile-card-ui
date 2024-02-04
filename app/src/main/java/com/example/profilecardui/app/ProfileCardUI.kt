@@ -22,11 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
 import com.example.profilecardui.R
+import com.example.profilecardui.data.ProfileCardViewModel
 import com.example.profilecardui.screens.MainNavigation
 
 
 @Composable
-fun ProfileCardUIApp() {
+fun ProfileCardUIApp(profilesViewModel: ProfileCardViewModel) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {
@@ -50,7 +51,7 @@ fun ProfileCardUIApp() {
                                     painter = painterResource(id = R.drawable.akariconspeoplegroup),
                                     contentDescription = "Home Outlined Icon",
                                     tint = Color(android.graphics.Color.parseColor("#e91e63")),
-                                    modifier = Modifier.size(52.dp)
+                                    modifier = Modifier.size(38.dp)
                                 )
                             }
                             Text(text = "Profiles", color = Color.White, fontSize = 15.sp)
@@ -68,7 +69,7 @@ fun ProfileCardUIApp() {
                                     painter = painterResource(id = R.drawable.thecodingmontana),
                                     contentDescription = "Panda Outlined Icon",
                                     tint = Color(android.graphics.Color.parseColor("#e91e63")),
-                                    modifier = Modifier.size(52.dp)
+                                    modifier = Modifier.size(38.dp)
                                 )
                             }
                             Text(text = "Author", color = Color.White, fontSize = 15.sp)
@@ -86,7 +87,7 @@ fun ProfileCardUIApp() {
                 .padding(it),
             color = Color(android.graphics.Color.parseColor("#181816"))
         ) {
-            MainNavigation(navController)
+            MainNavigation(navController, profilesViewModel)
         }
     }
 }

@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,33 +29,26 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.profilecardui.R
+import com.example.profilecardui.data.ProfileCardViewModel
 import com.example.profilecardui.ui.theme.fontProtest
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeProfiles(navController: NavHostController) {
-    val pics = listOf(
-        R.drawable.woman,
-        R.drawable.woman,
-        R.drawable.woman
-    )
+fun HomeProfiles(navController: NavHostController, profilesViewModel: ProfileCardViewModel) {
 
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f,
         pageCount = {
-            pics.size
+            profilesViewModel.userProfiles.size
         }
     )
 
@@ -75,9 +67,10 @@ fun HomeProfiles(navController: NavHostController) {
             Box {
                 Column {
                     Image(
-                        painter = painterResource(id = pics[index]),
+                        painter = painterResource(id = profilesViewModel.userProfiles[index].imgSrc),
                         contentDescription = null,
-                        contentScale = ContentScale.FillWidth,
+                        contentScale = ContentScale.FillHeight,
+                        modifier = Modifier.height(600.dp)
                     )
                     Box(
                         modifier = Modifier
@@ -97,7 +90,7 @@ fun HomeProfiles(navController: NavHostController) {
                         ) {
 
                             Text(
-                                text = "Johana, 25",
+                                text = profilesViewModel.userProfiles[index].shortName,
                                 color = Color.White,
                                 fontFamily = fontProtest,
                                 fontSize = 30.sp
@@ -109,18 +102,20 @@ fun HomeProfiles(navController: NavHostController) {
                             )
                             Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = "UX Designer",
+                                text = profilesViewModel.userProfiles[index].occupation,
                                 color = Color.White,
                                 fontWeight = FontWeight.SemiBold
                             )
                             Spacer(modifier = Modifier.height(2.dp))
                             Text(
-                                text = "Google",
+                                text = profilesViewModel.userProfiles[index].company,
                                 color = Color(android.graphics.Color.parseColor("#e91e63"))
                             )
                             Spacer(modifier = Modifier.height(5.dp))
                             Button(
-                                onClick = { /*TODO*/ },
+                                onClick = {
+                                    navController.navigate("userProfile/${index}")
+                                },
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = Color(android.graphics.Color.parseColor("#e91e63")),
                                     contentColor = Color.White

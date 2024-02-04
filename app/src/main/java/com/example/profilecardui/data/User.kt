@@ -7,5 +7,6 @@ data class User(
     val bio: String,
     val imgSrc: Int,
     val fullName: String,
-    val occupation: String
+    val occupation: String,
+    val mail: String
 )

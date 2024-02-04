@@ -116,7 +116,8 @@ fun UserProfile(
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text(
-                            text = profilesViewModel.userProfiles[userId.toInt()].fullName, fontFamily = fontProtest,
+                            text = profilesViewModel.userProfiles[userId.toInt()].fullName,
+                            fontFamily = fontProtest,
                             fontSize = 23.sp,
                             color = Color(android.graphics.Color.parseColor("#08d884"))
                         )
@@ -131,6 +132,18 @@ fun UserProfile(
                             text = profilesViewModel.userProfiles[userId.toInt()].company,
                             color = Color(android.graphics.Color.parseColor("#e91e63"))
                         )
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Row {
+                            Icon(
+                                painter = painterResource(id = R.drawable.mail),
+                                contentDescription = "Mail Icon"
+                            )
+                            Spacer(modifier = Modifier.width(5.dp))
+                            Text(
+                                text = profilesViewModel.userProfiles[userId.toInt()].mail,
+                                fontSize = 15.sp
+                            )
+                        }
                     }
                     Spacer(modifier = Modifier.height(25.dp))
                     Column(
@@ -202,7 +215,7 @@ fun UserProfile(
                                         )
                                         Spacer(modifier = Modifier.height(5.dp))
                                         Text(
-                                            text = "Google",
+                                            text = item.company,
                                             color = Color(android.graphics.Color.parseColor("#08d884")),
                                             fontSize = 12.sp
                                         )

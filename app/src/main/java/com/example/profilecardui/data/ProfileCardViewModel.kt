@@ -16,7 +16,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "Unsplash",
                 bio = "Dedicated photographer capturing life's essence through lens and light. Passionate about freezing moments that tell compelling stories. My images aim to evoke emotion and highlight the beauty in every frame. Join me on a visual journey where each click narrates a unique story of life's poetry.",
                 imgSrc = R.drawable.craig_mckay_jmurdhtm7ng_unsplash,
-                occupation = "Photographer"
+                occupation = "Photographer",
+                mail = "craig.mckay@unsplash.com"
             ),
             User(
                 shortName = "Johana",
@@ -25,7 +26,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "Google",
                 bio = "Innovative UX/UI designer crafting seamless digital experiences with creativity and empathy. I merge aesthetics and functionality to elevate user interactions. Let's create intuitive and delightful designs that leave a lasting impression in the digital world.",
                 imgSrc = R.drawable.woman,
-                occupation = "UX/UI"
+                occupation = "UX/UI",
+                mail = "louisiana.johana@google.com"
             ),
             User(
                 shortName = "Winegeart",
@@ -34,7 +36,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "CISCO",
                 bio = "Proactive Cyber Analyst adept at detecting and countering threats. Committed to fortifying digital security through continuous analysis and swift mitigation. Dedicated to staying ahead in the evolving cyber security landscape for robust defense.",
                 imgSrc = R.drawable.karsten_winegeart_ksqffhthpro_unsplash,
-                occupation = "Cyber Analyst"
+                occupation = "Cyber Analyst",
+                mail = "winegeart231@cisco.com"
             ),
             User(
                 shortName = "Hladynets",
@@ -43,7 +46,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "META",
                 bio = "Creative Frontend Developer turning ideas into sleek and user-friendly web experiences. Proficient in modern frameworks, I bring a blend of design and functionality to the forefront. Committed to crafting responsive and intuitive designs.",
                 imgSrc = R.drawable.vicky_hladynets_c8ta0gwpbqg_unsplash,
-                occupation = "Frontend Developer"
+                occupation = "Frontend Developer",
+                mail = "hladynets.vicky@meta.com"
             )
         )
     }
@@ -57,7 +61,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "Freelancer",
                 bio = "Creative Frontend Developer turning ideas into sleek and user-friendly web experiences. Proficient in modern frameworks, I bring a blend of design and functionality to the forefront. Committed to crafting responsive and intuitive designs.",
                 imgSrc = R.drawable.christopher,
-                occupation = "Frontend Developer"
+                occupation = "Frontend Developer",
+                mail = "christopherodhiambo254@gmail.com"
             ),
             User(
                 shortName = "Johana",
@@ -66,7 +71,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "Google",
                 bio = "Innovative UX/UI designer crafting seamless digital experiences with creativity and empathy. I merge aesthetics and functionality to elevate user interactions. Let's create intuitive and delightful designs that leave a lasting impression in the digital world.",
                 imgSrc = R.drawable.woman,
-                occupation = "UX/UI"
+                occupation = "UX/UI",
+                mail = "louisiana.johana@google.com"
             ),
             User(
                 shortName = "Winegeart",
@@ -75,7 +81,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "CISCO",
                 bio = "Proactive Cyber Analyst adept at detecting and countering threats. Committed to fortifying digital security through continuous analysis and swift mitigation. Dedicated to staying ahead in the evolving cyber security landscape for robust defense.",
                 imgSrc = R.drawable.karsten_winegeart_ksqffhthpro_unsplash,
-                occupation = "Cyber Analyst"
+                occupation = "Cyber Analyst",
+                mail = "winegeart231@cisco.com"
             ),
             User(
                 shortName = "Craig",
@@ -84,7 +91,8 @@ class ProfileCardViewModel : ViewModel() {
                 company = "Unsplash",
                 bio = "Dedicated photographer capturing life's essence through lens and light. Passionate about freezing moments that tell compelling stories. My images aim to evoke emotion and highlight the beauty in every frame. Join me on a visual journey where each click narrates a unique story of life's poetry.",
                 imgSrc = R.drawable.craig_mckay_jmurdhtm7ng_unsplash,
-                occupation = "Photographer"
+                occupation = "Photographer",
+                mail = "craig.mckay@unsplash.com"
             ),
         )
     }

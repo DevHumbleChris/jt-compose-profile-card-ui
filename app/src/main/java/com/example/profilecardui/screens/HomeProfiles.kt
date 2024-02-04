@@ -3,9 +3,11 @@ package com.example.profilecardui.screens
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,8 +19,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -53,13 +60,12 @@ fun HomeProfiles(navController: NavHostController) {
         }
     )
 
-    val screenWidth = LocalConfiguration.current.screenWidthDp
-    val pageWidth = (screenWidth / 5f).dp
-
-//    contentPadding = PaddingValues(horizontal = pageSize - 40.dp),
+    val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(scrollState)
     ) {
         HorizontalPager(
             state = pagerState,
@@ -90,16 +96,50 @@ fun HomeProfiles(navController: NavHostController) {
                                 .width(250.dp)
                         ) {
 
-                            Text(text = "Johana, 25", color = Color.White, fontFamily = fontProtest, fontSize = 30.sp)
+                            Text(
+                                text = "Johana, 25",
+                                color = Color.White,
+                                fontFamily = fontProtest,
+                                fontSize = 30.sp
+                            )
                             Spacer(modifier = Modifier.height(10.dp))
                             Divider(
                                 modifier = Modifier.fillMaxWidth(),
                                 thickness = 1.dp
                             )
                             Spacer(modifier = Modifier.height(10.dp))
-                            Text(text = "UX Designer", color = Color.White, fontWeight = FontWeight.SemiBold)
+                            Text(
+                                text = "UX Designer",
+                                color = Color.White,
+                                fontWeight = FontWeight.SemiBold
+                            )
                             Spacer(modifier = Modifier.height(2.dp))
-                            Text(text = "Google", color = Color(android.graphics.Color.parseColor("#e91e63")))
+                            Text(
+                                text = "Google",
+                                color = Color(android.graphics.Color.parseColor("#e91e63"))
+                            )
+                            Spacer(modifier = Modifier.height(5.dp))
+                            Button(
+                                onClick = { /*TODO*/ },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = Color(android.graphics.Color.parseColor("#e91e63")),
+                                    contentColor = Color.White
+                                ),
+                                shape = RoundedCornerShape(5.dp)
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.Center
+                                ) {
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.eye),
+                                        contentDescription = "Visibility Icon",
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(5.dp))
+                                    Text(text = "View Profile")
+                                }
+                            }
                         }
                     }
                 }

@@ -15,8 +15,10 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Icon
@@ -37,8 +39,9 @@ import com.example.profilecardui.ui.theme.fontProtest
 
 @Composable
 fun Author(navController: NavHostController) {
+    val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().verticalScroll(scrollState)
     ) {
         Image(
             painter = painterResource(id = R.drawable.wendy_brooks_x_igsznnqva_unsplash),
@@ -145,7 +148,7 @@ fun Author(navController: NavHostController) {
                         ) {
                             Icon(
                                 painterResource(id = R.drawable.twitter),
-                                contentDescription = "Person Icon",
+                                contentDescription = "Twitter Icon",
                                 modifier = Modifier.size(38.dp)
                             )
                             Spacer(modifier = Modifier.width(34.dp))
@@ -153,6 +156,40 @@ fun Author(navController: NavHostController) {
                                 Text(text = "Twitter")
                                 Text(
                                     text = "@AmChrisKE",
+                                    fontFamily = fontProtest,
+                                    fontSize = 17.sp
+                                )
+                            }
+                        }
+                    }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp)
+                            .background(
+                                shape = RoundedCornerShape(10.dp),
+                                color = Color(android.graphics.Color.parseColor("#222222"))
+                            )
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 10.dp, horizontal = 5.dp)
+                                .background(
+                                    shape = RoundedCornerShape(10.dp),
+                                    color = Color(android.graphics.Color.parseColor("#222222"))
+                                )
+                        ) {
+                            Icon(
+                                painterResource(id = R.drawable.whatsapp),
+                                contentDescription = "WhatsApp Icon",
+                                modifier = Modifier.size(38.dp)
+                            )
+                            Spacer(modifier = Modifier.width(34.dp))
+                            Column {
+                                Text(text = "WhatsApp")
+                                Text(
+                                    text = "+254 768879348",
                                     fontFamily = fontProtest,
                                     fontSize = 17.sp
                                 )

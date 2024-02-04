@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 
 @Composable
 fun MainNavigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "home-profiles") {
+    NavHost(navController = navController, startDestination = "profiles") {
         composable(route = "profiles") {
             HomeProfiles(navController)
         }

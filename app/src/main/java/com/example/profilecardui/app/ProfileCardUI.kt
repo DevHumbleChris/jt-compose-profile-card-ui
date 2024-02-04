@@ -41,39 +41,39 @@ fun ProfileCardUIApp() {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
-                        Column {
+                        Column(
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
                             IconButton(
                                 onClick = {
                                     navController.navigate("profiles")
                                 },
                             ) {
-                                Column {
-                                    Icon(
-                                        painter = painterResource(id = R.drawable.akariconspeoplegroup),
-                                        contentDescription = "Home Outlined Icon",
-                                        tint = Color(android.graphics.Color.parseColor("#e91e63")),
-                                        modifier = Modifier.size(52.dp)
-                                    )
-
-                                }
+                                Icon(
+                                    painter = painterResource(id = R.drawable.akariconspeoplegroup),
+                                    contentDescription = "Home Outlined Icon",
+                                    tint = Color(android.graphics.Color.parseColor("#e91e63")),
+                                    modifier = Modifier.size(52.dp)
+                                )
                             }
                             Text(text = "Profiles", color = Color.White, fontSize = 15.sp)
                         }
-                        Column {
+                        Column(
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
                             IconButton(
                                 onClick = {
                                     navController.navigate("author")
                                 },
                             ) {
-                                Column {
-                                    Icon(
-                                        painter = painterResource(id = R.drawable.thecodingmontana),
-                                        contentDescription = "Panda Outlined Icon",
-                                        tint = Color(android.graphics.Color.parseColor("#e91e63")),
-                                        modifier = Modifier.size(52.dp)
-                                    )
-
-                                }
+                                Icon(
+                                    painter = painterResource(id = R.drawable.thecodingmontana),
+                                    contentDescription = "Panda Outlined Icon",
+                                    tint = Color(android.graphics.Color.parseColor("#e91e63")),
+                                    modifier = Modifier.size(52.dp)
+                                )
                             }
                             Text(text = "Author", color = Color.White, fontSize = 15.sp)
                         }
